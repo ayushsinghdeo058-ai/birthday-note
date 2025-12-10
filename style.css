@@ -1,0 +1,124 @@
+/* style.css */
+
+/* --- General Styling --- */
+body {
+    /* FIXED BACKGROUND: This light blue will show through the floating emojis */
+    background: #e6f7ff; 
+    font-family: 'Bangers', cursive; 
+    color: #333;
+    text-align: center;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    padding-top: 50px;
+    min-height: 100vh;
+    position: relative;
+}
+
+.screen {
+    /* CRITICAL FIX 1: Ensures any screen NOT active is completely hidden */
+    visibility: hidden; 
+    position: absolute; /* Allows screens to occupy the same space */
+    top: 50px; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+    padding: 20px;
+    /* SEMI-TRANSPARENT WHITE: Allows the body color to show through */
+    background-color: rgba(255, 255, 255, 0.95); 
+    border-radius: 20px;
+    max-width: 550px; 
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 20; 
+}
+
+.screen.active {
+    display: block;
+    visibility: visible; /* CRITICAL FIX 2: Only the active screen is visible */
+    position: relative; /* Return to normal flow when active */
+    top: auto;
+    left: auto;
+    transform: none;
+}
+
+h1, h2, h3 {
+    color: #ff33a8; /* Bright Magenta Pink */
+    font-weight: normal; 
+}
+
+/* --- Start Screen Button (Centered, Colorful, Smaller) --- */
+#startScreen {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+#startGameBtn {
+    padding: 12px 25px; 
+    font-size: 22px; 
+    margin: 20px auto;
+    display: block;
+    
+    background: linear-gradient(45deg, #ff33a8, #ffb84d, #63a4ff);
+    color: white;
+    border: 3px solid white;
+    box-shadow: 0 8px #99006b;
+}
+
+/* --- Game Theme --- */
+.question-box {
+    border: 6px solid #ff33a8; 
+    border-radius: 15px;
+    padding: 30px 20px 20px 20px;
+    margin-top: 20px;
+    background-color: #ffe6f5; /* Very Light Pink Question Box Background */
+    position: relative;
+    min-height: 200px;
+}
+
+/* --- Button Styling (General) --- */
+.fun-button {
+    white-space: normal; /* Allows button text to wrap */
+    line-height: 1.2;
+    padding: 15px 30px;
+    font-size: 20px;
+    margin: 10px;
+    background-color: #ff69b4; 
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px #cc0099;
+    transition: all 0.15s ease;
+    text-transform: uppercase;
+}
+.fun-button:hover { background-color: #ff4d99; }
+.fun-button:active { transform: translateY(4px); box-shadow: 0 2px #cc0099; }
+
+.no-btn { background-color: #ffb84d; box-shadow: 0 6px #e68a00; }
+.dominant-tone-btn { background-color: #d10000; box-shadow: 0 6px #800000; }
+
+/* --- Floating Background Emojis --- */
+.background-floaters {
+    position: fixed; 
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 10; 
+    pointer-events: none;
+}
+.floating-emoji { 
+    position: absolute; 
+    font-size: 40px; 
+    animation: float 4s infinite alternate ease-in-out; 
+    opacity: 0.6; 
+}
+@keyframes float {
+    0% { transform: translateY(0px) rotate(1deg); } 
+    100% { transform: translateY(-15px) rotate(-1deg); } 
+}
+
+/* --- Feedback and Sad Screen --- */
+.feedback-message { height: 30px; margin-top: 15px; font-weight: bold; font-size: 1.2em; color: #cc0000; }
+.sad-emoji { font-size: 80px; display: block; margin: 20px auto; }
+.sad-tone { font-size: 24px; color: #cc0000; }

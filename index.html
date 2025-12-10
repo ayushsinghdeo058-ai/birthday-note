@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Soham! 🎉</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="backgroundFloaters" class="background-floaters"></div>
+
+    <audio id="gameMusic" src="music/happy_game_tune.mp3" loop></audio>
+    <audio id="secretMusic" src="music/secret_reveal_tune.mp3" loop></audio>
+
+    <div id="startScreen" class="screen active">
+        <h1>🥳 Happy Birthday Soham! 🥳</h1>
+        <p>A personalized game just for you!</p>
+        <button id="startGameBtn" class="fun-button">Wanna play an exciting game?</button>
+    </div>
+
+    <div id="gameScreen" class="screen">
+        <div id="questionContainer">
+            </div>
+        <div id="answerFeedback" class="feedback-message"></div>
+    </div>
+
+    <div id="scoreScreen" class="screen">
+        <h2>Game Over!</h2>
+        <h2 class="score-display">Your Score: <span id="finalScore"></span>/8</h2> 
+        <div id="scoreResultArea"></div>
+    </div>
+
+    <div id="secretScreen" class="screen">
+        <h2>🤫 A Secret Message Just for You... 🤫</h2>
+        <p id="secretMessage" class="secret-text"></p>
+        <div class="secret-options">
+            <button id="hearMoreBtn" class="fun-button">Wanna hear more?</button>
+            <button id="noMoreBtn" class="fun-button no-btn">No 🥺</button>
+        </div>
+    </div>
+
+    <div id="lastChanceScreen" class="screen">
+        <span class="sad-emoji">😭</span> 
+        <p id="sadMessage" class="sad-tone"></p>
+        <button id="lastChanceBtn" class="fun-button dominant-tone-btn">I'm giving you last chance!</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
